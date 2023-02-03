@@ -12,5 +12,5 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "Android Common"
-include ':app'
+rootProject.name = "android-common"
+include(":app")
