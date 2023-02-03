@@ -4,6 +4,7 @@ object Versions {
     const val compose_material3 = "1.1.0-alpha05"
     const val compose_ui = "1.3.3"
     const val core_ktx = "1.9.0"
+    const val detekt = "1.22.0"
     const val kotlin_android = "1.8.0"
     const val lifecycle_ktx = "2.5.1"
 }
