@@ -6,6 +6,7 @@ object Versions {
     const val core_ktx = "1.9.0"
     const val detekt = "1.22.0"
     const val kotlin_android = "1.8.0"
+    const val ktlint = "11.1.0"
     const val lifecycle_ktx = "2.5.1"
 }
 

@@ -27,6 +27,12 @@ android {
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
+    sourceSets {
+        // This is needed so Ktlint works properly
+        configureEach {
+            java.srcDir("src/$name/kotlin")
+        }
+    }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
