@@ -13,28 +13,66 @@ import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
-import androidx.core.view.ViewCompat
+import androidx.core.view.WindowCompat
 
 private val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
-    secondary = PurpleGrey80,
-    tertiary = Pink80
+    primary = lipstickRed,
+    onPrimary = white,
+    primaryContainer = cosmos,
+    onPrimaryContainer = darkMaroon,
+    secondary = puce,
+    onSecondary = white,
+    secondaryContainer = cosmos,
+    onSecondaryContainer = sealBrown,
+    tertiary = yellowMetal,
+    onTertiary = white,
+    tertiaryContainer = navajoWhite,
+    onTertiaryContainer = graphite,
+    error = cornellRed,
+    errorContainer = peachSchnapps,
+    onError = white,
+    onErrorContainer = deepBrown,
+    background = milkWhite,
+    onBackground = rangoonGreen,
+    surface = milkWhite,
+    onSurface = rangoonGreen,
+    surfaceVariant = palePink,
+    onSurfaceVariant = blackCow,
+    outline = spicyPink,
+    inverseOnSurface = linen,
+    inverseSurface = thunder,
+    inversePrimary = sundown,
+    surfaceTint = lipstickRed
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = Purple40,
-    secondary = PurpleGrey40,
-    tertiary = Pink40
-
-    /* Other default colors to override
-    background = Color(0xFFFFFBFE),
-    surface = Color(0xFFFFFBFE),
-    onPrimary = Color.White,
-    onSecondary = Color.White,
-    onTertiary = Color.White,
-    onBackground = Color(0xFF1C1B1F),
-    onSurface = Color(0xFF1C1B1F),
-    */
+    primary = sundown,
+    onPrimary = claret,
+    primaryContainer = paprika,
+    onPrimaryContainer = cosmos,
+    secondary = cavernPink,
+    onSecondary = craterBrown,
+    secondaryContainer = purpleBrown,
+    onSecondaryContainer = cosmos,
+    tertiary = brandy,
+    onTertiary = deepBronze,
+    tertiaryContainer = otterBrown,
+    onTertiaryContainer = navajoWhite,
+    error = cornflowerLilac,
+    errorContainer = bloodRed,
+    onError = rosewood,
+    onErrorContainer = peachSchnapps,
+    background = rangoonGreen,
+    onBackground = lavenderPinocchio,
+    surface = rangoonGreen,
+    onSurface = lavenderPinocchio,
+    surfaceVariant = blackCow,
+    onSurfaceVariant = pinkFlare,
+    outline = warmGrey,
+    inverseOnSurface = rangoonGreen,
+    inverseSurface = lavenderPinocchio,
+    inversePrimary = lipstickRed,
+    surfaceTint = sundown
 )
 
 @Composable
@@ -55,8 +93,9 @@ fun AndroidCommonTheme(
     val view = LocalView.current
     if (!view.isInEditMode) {
         SideEffect {
-            (view.context as Activity).window.statusBarColor = colorScheme.primary.toArgb()
-            ViewCompat.getWindowInsetsController(view)?.isAppearanceLightStatusBars = darkTheme
+            val window = (view.context as Activity).window
+            window.statusBarColor = colorScheme.primary.toArgb()
+            WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = darkTheme
         }
     }
 
