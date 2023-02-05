@@ -7,7 +7,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
-import io.vinicius.common.screen.home.HomeScreen
+import io.vinicius.common.ui.component.AppNavigation
 import io.vinicius.common.ui.theme.AndroidCommonTheme
 
 class MainActivity : ComponentActivity() {
@@ -16,8 +16,11 @@ class MainActivity : ComponentActivity() {
         setContent {
             AndroidCommonTheme {
                 // A surface container using the 'background' color from the theme
-                Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
-                    HomeScreen()
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colorScheme.background
+                ) {
+                    AppNavigation()
                 }
             }
         }

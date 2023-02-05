@@ -23,7 +23,8 @@ android {
     }
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
+            isShrinkResources = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
@@ -56,10 +57,12 @@ android {
 dependencies {
     implementation(Deps.activity_compose)
     implementation(Deps.compose_material3)
+    implementation(Deps.compose_navigation)
     implementation(Deps.compose_ui)
     implementation(Deps.compose_ui_tooling_preview)
     implementation(Deps.core_ktx)
     implementation(Deps.lifecycle_ktx)
+    implementation(Deps.material_icons)
 
     debugImplementation(Deps.compose_ui_tooling)
     debugImplementation(Deps.compose_ui_test)

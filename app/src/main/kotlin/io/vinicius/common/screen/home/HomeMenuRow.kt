@@ -10,15 +10,15 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import io.vinicius.common.shared.Router
+import io.vinicius.common.ui.component.Destination
 import io.vinicius.common.ui.theme.AndroidCommonTheme
 
 @Composable
-fun HomeMenuRow(menuOption: MenuOption) {
+fun HomeMenuRow(menuOption: MenuOption, modifier: Modifier = Modifier) {
     Row(
         horizontalArrangement = Arrangement.Center,
         verticalAlignment = Alignment.CenterVertically,
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .height(48.dp)
     ) {
@@ -30,7 +30,7 @@ fun HomeMenuRow(menuOption: MenuOption) {
 @Composable
 private fun DefaultPreview() {
     AndroidCommonTheme {
-        val menuOption = MenuOption(Router.Auth, "Auth")
+        val menuOption = MenuOption(Destination.Auth, "Auth")
         HomeMenuRow(menuOption)
     }
 }
