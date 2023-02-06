@@ -5,11 +5,16 @@ object Versions {
     const val compose_navigation = "2.5.3"
     const val compose_ui = "1.3.3"
     const val core_ktx = "1.9.0"
+    const val coroutines = "1.6.4"
     const val detekt = "1.22.0"
     const val kotlin_android = "1.8.0"
+    const val ksp = "1.8.0-1.0.9"
     const val ktlint = "11.1.0"
     const val lifecycle_ktx = "2.5.1"
     const val material_icons = "1.3.1"
+    const val moshi = "1.14.0"
+    const val okhttp = "4.10.0"
+    const val retrofit = "2.9.0"
 }
 
 object Deps {
@@ -21,6 +26,14 @@ object Deps {
     const val compose_ui_tooling = "androidx.compose.ui:ui-tooling:${Versions.compose_ui}"
     const val compose_ui_tooling_preview = "androidx.compose.ui:ui-tooling-preview:${Versions.compose_ui}"
     const val core_ktx = "androidx.core:core-ktx:${Versions.core_ktx}"
+    const val coroutines_android = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
+    const val coroutines_core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}"
     const val lifecycle_ktx = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifecycle_ktx}"
     const val material_icons = "androidx.compose.material:material-icons-extended:${Versions.material_icons}"
+    const val moshi = "com.squareup.moshi:moshi-kotlin:${Versions.moshi}"
+    const val moshi_codegen = "com.squareup.moshi:moshi-kotlin-codegen:${Versions.moshi}"
+    const val okhttp = "com.squareup.okhttp3:okhttp:${Versions.okhttp}"
+    const val okhttp_logging = "com.squareup.okhttp3:logging-interceptor:${Versions.okhttp}"
+    const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
+    const val retrofit_moshi = "com.squareup.retrofit2:converter-moshi:${Versions.retrofit}"
 }

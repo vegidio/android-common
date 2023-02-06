@@ -3,6 +3,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("com.google.devtools.ksp") version Versions.ksp
 }
 
 android {
@@ -61,8 +62,17 @@ dependencies {
     implementation(Deps.compose_ui)
     implementation(Deps.compose_ui_tooling_preview)
     implementation(Deps.core_ktx)
+    implementation(Deps.coroutines_android)
+    implementation(Deps.coroutines_core)
     implementation(Deps.lifecycle_ktx)
     implementation(Deps.material_icons)
+    implementation(Deps.moshi)
+    implementation(Deps.okhttp)
+    implementation(Deps.okhttp_logging)
+    implementation(Deps.retrofit)
+    implementation(Deps.retrofit_moshi)
+
+    ksp(Deps.moshi_codegen)
 
     debugImplementation(Deps.compose_ui_tooling)
     debugImplementation(Deps.compose_ui_test)
