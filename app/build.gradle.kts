@@ -64,6 +64,7 @@ dependencies {
     implementation(Deps.core_ktx)
     implementation(Deps.coroutines_android)
     implementation(Deps.coroutines_core)
+    implementation(Deps.koin_compose)
     implementation(Deps.lifecycle_ktx)
     implementation(Deps.material_icons)
     implementation(Deps.moshi)
