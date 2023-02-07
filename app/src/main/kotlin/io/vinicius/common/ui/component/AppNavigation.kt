@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.LockOpen
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.CenterAlignedTopAppBar
@@ -20,9 +21,11 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
@@ -31,11 +34,13 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import io.vinicius.common.LocalNavController
+import io.vinicius.common.repository.Session
 import io.vinicius.common.screen.auth.AuthScreen
 import io.vinicius.common.screen.countries.CountriesScreen
 import io.vinicius.common.screen.country.CountryScreen
 import io.vinicius.common.screen.home.HomeScreen
 import io.vinicius.common.screen.user.UserScreen
+import org.koin.androidx.compose.get
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -88,7 +93,13 @@ private fun MyTopAppBar(navController: NavController, scrollBehavior: TopAppBarS
 }
 
 @Composable
-private fun MyBottomAppBar(navController: NavController, modifier: Modifier = Modifier) {
+private fun MyBottomAppBar(
+    navController: NavController,
+    modifier: Modifier = Modifier,
+    session: Session = get()
+) {
+    val token by session.token.collectAsState()
+
     BottomAppBar(
         modifier = modifier.clickable {
             navController.navigate(Destination.Auth.name)
@@ -99,8 +110,13 @@ private fun MyBottomAppBar(navController: NavController, modifier: Modifier = Mo
             horizontalArrangement = Arrangement.spacedBy(10.dp, Alignment.CenterHorizontally),
             modifier = Modifier.fillMaxSize()
         ) {
-            Icon(Icons.Filled.LockOpen, "Logged out")
-            Text("Logged out")
+            if (token == null) {
+                Icon(Icons.Filled.LockOpen, "Logged out", tint = Color.Red)
+                Text("Logged out", color = Color.Red)
+            } else {
+                Icon(Icons.Filled.Lock, "Logged in", tint = Color(color = 0xFF04B976))
+                Text("Logged in", color = Color(color = 0xFF04B976))
+            }
         }
     }
 }
