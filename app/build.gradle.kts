@@ -70,6 +70,7 @@ dependencies {
     implementation(Deps.moshi)
     implementation(Deps.retrofit_moshi)
     implementation(Deps.sak_network)
+    implementation(Deps.sak_view)
 
     ksp(Deps.moshi_codegen)
 

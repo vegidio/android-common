@@ -16,9 +16,9 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
-import io.vinicius.common.ui.component.MyTextField
+import io.vinicius.sak.view.MyEmailField
+import io.vinicius.sak.view.MyPasswordField
 
 @Composable
 fun AuthLoginForm(viewModel: AuthViewModel) {
@@ -40,17 +40,14 @@ fun AuthLoginForm(viewModel: AuthViewModel) {
                 fontWeight = FontWeight.Bold
             )
 
-            MyTextField(
-                value = email,
-                onValueChange = { email = it },
-                label = { Text("E-mail") }
+            MyEmailField(
+                label = { Text("E-mail") },
+                onValueChange = { email = it }
             )
 
-            MyTextField(
-                value = password,
-                onValueChange = { password = it },
+            MyPasswordField(
                 label = { Text("Password") },
-                visualTransformation = PasswordVisualTransformation()
+                onValueChange = { password = it },
             )
 
             Button(
