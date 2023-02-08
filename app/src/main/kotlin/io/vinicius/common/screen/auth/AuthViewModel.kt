@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import io.vinicius.common.repository.Session
 import io.vinicius.common.service.CountriesRestService
-import io.vinicius.common.service.NetworkState
+import io.vinicius.sak.network.NetworkState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.catch

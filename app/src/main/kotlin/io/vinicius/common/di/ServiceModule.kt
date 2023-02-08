@@ -1,8 +1,8 @@
 package io.vinicius.common.di
 
 import io.vinicius.common.service.CountriesRestService
-import io.vinicius.common.service.FlowCallAdapterFactory
-import io.vinicius.common.service.RestFactory
+import io.vinicius.sak.network.FlowCallAdapterFactory
+import io.vinicius.sak.network.RestFactory
 import org.koin.dsl.module
 
 val serviceModule = module {

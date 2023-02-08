@@ -68,10 +68,8 @@ dependencies {
     implementation(Deps.lifecycle_ktx)
     implementation(Deps.material_icons)
     implementation(Deps.moshi)
-    implementation(Deps.okhttp)
-    implementation(Deps.okhttp_logging)
-    implementation(Deps.retrofit)
     implementation(Deps.retrofit_moshi)
+    implementation(Deps.sak_network)
 
     ksp(Deps.moshi_codegen)
 

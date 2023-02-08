@@ -1,6 +1,7 @@
 object Versions {
     const val activity_compose = "1.6.1"
     const val android = "7.4.1"
+    const val android_sak = "23.2.8"
     const val compose_material3 = "1.1.0-alpha05"
     const val compose_navigation = "2.5.3"
     const val compose_ui = "1.3.3"
@@ -14,7 +15,6 @@ object Versions {
     const val lifecycle_ktx = "2.5.1"
     const val material_icons = "1.3.1"
     const val moshi = "1.14.0"
-    const val okhttp = "4.10.0"
     const val retrofit = "2.9.0"
 }
 
@@ -34,8 +34,6 @@ object Deps {
     const val material_icons = "androidx.compose.material:material-icons-extended:${Versions.material_icons}"
     const val moshi = "com.squareup.moshi:moshi-kotlin:${Versions.moshi}"
     const val moshi_codegen = "com.squareup.moshi:moshi-kotlin-codegen:${Versions.moshi}"
-    const val okhttp = "com.squareup.okhttp3:okhttp:${Versions.okhttp}"
-    const val okhttp_logging = "com.squareup.okhttp3:logging-interceptor:${Versions.okhttp}"
-    const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
     const val retrofit_moshi = "com.squareup.retrofit2:converter-moshi:${Versions.retrofit}"
+    const val sak_network = "com.github.vegidio.android-sak:network:${Versions.android_sak}"
 }
