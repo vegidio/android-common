@@ -1,9 +1,9 @@
 @file:Suppress("UnstableApiUsage")
 
 plugins {
-    id("com.android.application")
-    id("org.jetbrains.kotlin.android")
-    id("com.google.devtools.ksp") version Versions.ksp
+    id(Plugins.android_app)
+    id(Plugins.kotlin)
+    id(Plugins.ksp) version Versions.ksp
 }
 
 android {

@@ -2,6 +2,7 @@ object Versions {
     const val activity_compose = "1.6.1"
     const val android = "7.4.1"
     const val android_sak = "main-SNAPSHOT"
+    const val apollo = "3.7.3"
     const val compose_material3 = "1.1.0-alpha05"
     const val compose_navigation = "2.5.3"
     const val compose_ui = "1.3.3"
@@ -9,7 +10,7 @@ object Versions {
     const val coroutines = "1.6.4"
     const val detekt = "1.22.0"
     const val koin = "3.4.1"
-    const val kotlin_android = "1.8.0"
+    const val kotlin = "1.8.0"
     const val ksp = "1.8.0-1.0.9"
     const val ktlint = "11.1.0"
     const val lifecycle_ktx = "2.5.1"
@@ -18,8 +19,18 @@ object Versions {
     const val retrofit = "2.9.0"
 }
 
+object Plugins {
+    const val android_app = "com.android.application"
+    const val android_lib = "com.android.library"
+    const val detekt = "io.gitlab.arturbosch.detekt"
+    const val kotlin = "org.jetbrains.kotlin.android"
+    const val ksp = "com.google.devtools.ksp"
+    const val ktlint = "org.jlleitschuh.gradle.ktlint"
+}
+
 object Deps {
     const val activity_compose = "androidx.activity:activity-compose:${Versions.activity_compose}"
+    const val apollo_runtime = "com.apollographql.apollo3:apollo-runtime:${Versions.apollo}"
     const val compose_material3 = "androidx.compose.material3:material3:${Versions.compose_material3}"
     const val compose_navigation = "androidx.navigation:navigation-compose:${Versions.compose_navigation}"
     const val compose_ui = "androidx.compose.ui:ui:${Versions.compose_ui}"
