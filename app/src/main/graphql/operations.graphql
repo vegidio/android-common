@@ -1,0 +1,83 @@
+mutation signIn($dto: SignInRequestDto!) {
+    signIn(dto: $dto) {
+        accessToken
+        refreshToken
+    }
+}
+
+query me {
+    me {
+        id,
+        name,
+        username,
+        email
+    }
+}
+
+query countries {
+    countries {
+        code,
+        name {
+            common,
+            official,
+            nativeName {
+                language,
+                common,
+                official
+            }
+        },
+        capital,
+        region,
+        subRegion,
+        languages {
+            code,
+            name
+        },
+        currencies {
+            code,
+            name,
+            symbol
+        },
+        population,
+        area,
+        coordinates,
+        flags {
+            png,
+            svg
+        }
+    }
+}
+
+query country($code: String!) {
+    country(code: $code) {
+        code,
+        name {
+            common,
+            official,
+            nativeName {
+                language,
+                common,
+                official
+            }
+        },
+        capital,
+        region,
+        subRegion,
+        languages {
+            code,
+            name
+        },
+        currencies {
+            code,
+            name,
+            symbol
+        },
+        population,
+        area,
+        coordinates,
+        flags {
+            png,
+            svg
+        }
+    }
+}
