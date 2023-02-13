@@ -51,7 +51,7 @@ fun AuthLoginForm(viewModel: AuthViewModel) {
             )
 
             Button(
-                onClick = { viewModel.loginTest() },
+                onClick = { viewModel.login(email, password) },
                 enabled = email.isNotEmpty() && password.isNotEmpty(),
                 modifier = Modifier.fillMaxWidth(fraction = 0.5f)
             ) {
