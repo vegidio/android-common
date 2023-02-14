@@ -1,7 +1,7 @@
 object Versions {
     const val activity_compose = "1.6.1"
     const val android = "7.4.1"
-    const val android_sak = "23.2.12"
+    const val android_sak = "main-SNAPSHOT"
     const val apollo = "3.7.4"
     const val compose_material3 = "1.1.0-alpha05"
     const val compose_navigation = "2.5.3"
@@ -11,7 +11,6 @@ object Versions {
     const val detekt = "1.22.0"
     const val koin = "3.4.1"
     const val kotlin = "1.8.0"
-    const val ksp = "1.8.0-1.0.9"
     const val ktlint = "11.1.0"
     const val lifecycle_ktx = "2.5.1"
     const val material_icons = "1.3.1"
@@ -26,7 +25,6 @@ object Plugins {
     const val apollo = "com.apollographql.apollo3"
     const val detekt = "io.gitlab.arturbosch.detekt"
     const val kotlin = "org.jetbrains.kotlin.android"
-    const val ksp = "com.google.devtools.ksp"
     const val ktlint = "org.jlleitschuh.gradle.ktlint"
 }
 
@@ -46,8 +44,7 @@ object Deps {
     const val lifecycle_ktx = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifecycle_ktx}"
     const val material_icons = "androidx.compose.material:material-icons-extended:${Versions.material_icons}"
     const val moshi = "com.squareup.moshi:moshi-kotlin:${Versions.moshi}"
-    const val moshi_codegen = "com.squareup.moshi:moshi-kotlin-codegen:${Versions.moshi}"
-    const val retrofit_moshi = "com.squareup.retrofit2:converter-moshi:${Versions.retrofit}"
+    const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
     const val sak_network = "com.github.vegidio.android-sak:network:${Versions.android_sak}"
     const val sak_view = "com.github.vegidio.android-sak:view:${Versions.android_sak}"
     const val timber = "com.jakewharton.timber:timber:${Versions.timber}"

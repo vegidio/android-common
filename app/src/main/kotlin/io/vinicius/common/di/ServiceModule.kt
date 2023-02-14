@@ -3,29 +3,24 @@ package io.vinicius.common.di
 import io.vinicius.common.service.CountriesGraphqlService
 import io.vinicius.common.service.CountriesRestService
 import io.vinicius.common.service.CountriesService
-import io.vinicius.sak.network.FlowCallAdapterFactory
-import io.vinicius.sak.network.RestFactory
+import io.vinicius.sak.network.LogHandler
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
+import timber.log.Timber
 
 val serviceModule = module {
-    // RestFactory
-    single {
-        RestFactory(
-            context = get(),
-            converter = get(),
-            callAdapter = FlowCallAdapterFactory()
-        )
-    }
-
     // CountriesRestService
     single<CountriesService>(named("restCountries")) {
-        val restFactory = get<RestFactory>()
-        restFactory.create(CountriesRestService::class, "https://countries.vinicius.io/api/")
+        CountriesRestService(
+            baseUrl = "https://countries.vinicius.io/api/",
+            logHandler = LogHandler(Timber::d, "BODY")
+        )
     }
 
     // CountriesGraphqlService
     single<CountriesService>(named("graphqlCountries")) {
-        CountriesGraphqlService()
+        CountriesGraphqlService(
+            url = "https://countries.vinicius.io/graphql"
+        )
     }
 }

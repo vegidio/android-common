@@ -3,7 +3,6 @@
 plugins {
     id(Plugins.android_app)
     id(Plugins.kotlin)
-    id(Plugins.ksp) version Versions.ksp
     id(Plugins.apollo) version Versions.apollo
 }
 
@@ -70,12 +69,10 @@ dependencies {
     implementation(Deps.lifecycle_ktx)
     implementation(Deps.material_icons)
     implementation(Deps.moshi)
-    implementation(Deps.retrofit_moshi)
+    implementation(Deps.retrofit)
     implementation(Deps.sak_network)
     implementation(Deps.sak_view)
     implementation(Deps.timber)
-
-    ksp(Deps.moshi_codegen)
 
     debugImplementation(Deps.compose_ui_tooling)
     debugImplementation(Deps.compose_ui_test)

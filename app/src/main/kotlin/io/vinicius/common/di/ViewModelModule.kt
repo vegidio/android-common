@@ -7,6 +7,6 @@ import org.koin.dsl.module
 
 val viewModelModule = module {
     viewModel {
-        AuthViewModel(get(named("graphqlCountries")), get())
+        AuthViewModel(get(named("restCountries")), get())
     }
 }

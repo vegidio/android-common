@@ -7,12 +7,9 @@ import io.vinicius.common.model.Token
 import io.vinicius.sak.network.GraphqlFactory
 import kotlinx.coroutines.flow.Flow
 
-class CountriesGraphqlService :
-    GraphqlFactory(
-        "https://countries.vinicius.io/graphql",
-        Token::class
-    ),
-    CountriesService {
+class CountriesGraphqlService(
+    url: String
+) : GraphqlFactory(url, Token::class), CountriesService {
     override fun login(email: String, password: String): Flow<Response<Token>> {
         val mutation = SignInMutation(SignInRequestDto(email, password))
         return sendMutation(mutation)
