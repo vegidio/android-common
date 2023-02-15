@@ -62,6 +62,7 @@ dependencies {
     implementation(Deps.compose_navigation)
     implementation(Deps.compose_ui)
     implementation(Deps.compose_ui_tooling_preview)
+    implementation(Deps.constraintlayout)
     implementation(Deps.core_ktx)
     implementation(Deps.coroutines_android)
     implementation(Deps.coroutines_core)

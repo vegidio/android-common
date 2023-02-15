@@ -1,9 +1,8 @@
 package io.vinicius.common.screen.home
 
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -12,25 +11,25 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import io.vinicius.common.ui.component.Destination
 import io.vinicius.common.ui.theme.AndroidCommonTheme
+import io.vinicius.sak.view.ListRow
 
 @Composable
 fun HomeMenuRow(menuOption: MenuOption, modifier: Modifier = Modifier) {
-    Row(
-        horizontalArrangement = Arrangement.Center,
-        verticalAlignment = Alignment.CenterVertically,
-        modifier = modifier
-            .fillMaxWidth()
-            .height(48.dp)
-    ) {
-        Text(text = menuOption.title)
+    ListRow(modifier) {
+        Box(
+            contentAlignment = Alignment.Center,
+            modifier = Modifier.fillMaxSize()
+        ) {
+            Text(text = menuOption.title)
+        }
     }
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 private fun DefaultPreview() {
     AndroidCommonTheme {
         val menuOption = MenuOption(Destination.Auth, "Auth")
-        HomeMenuRow(menuOption)
+        HomeMenuRow(menuOption, Modifier.size(200.dp, 40.dp))
     }
 }
