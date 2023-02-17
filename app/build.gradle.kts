@@ -72,6 +72,7 @@ dependencies {
     implementation(Deps.moshi)
     implementation(Deps.retrofit)
     implementation(Deps.sak_network)
+    implementation(Deps.sak_util)
     implementation(Deps.sak_view)
     implementation(Deps.timber)
 

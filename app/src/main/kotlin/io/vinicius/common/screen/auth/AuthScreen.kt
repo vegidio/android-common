@@ -27,7 +27,7 @@ fun AuthScreen(viewModel: AuthViewModel = koinViewModel(), session: Session = ge
     CompositionLocalProvider(LocalAuthVM provides viewModel) {
         OverlaidColumn(
             state = state,
-            overlaidStates = defaultOverlaidStates { viewModel.state.value = NetworkState.Idle },
+            overlaidStates = defaultOverlaidStates { viewModel.setState(NetworkState.Idle) },
             verticalArrangement = Arrangement.spacedBy(16.dp),
             modifier = Modifier.padding(16.dp)
         ) {

@@ -1,7 +1,7 @@
 object Versions {
     const val activity_compose = "1.6.1"
     const val android = "7.4.1"
-    const val android_sak = "23.2.15-1"
+    const val android_sak = "23.2.17"
     const val apollo = "3.7.4"
     const val compose_material3 = "1.1.0-alpha05"
     const val compose_navigation = "2.5.3"
@@ -48,6 +48,7 @@ object Deps {
     const val moshi = "com.squareup.moshi:moshi-kotlin:${Versions.moshi}"
     const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
     const val sak_network = "com.github.vegidio.android-sak:network:${Versions.android_sak}"
+    const val sak_util = "com.github.vegidio.android-sak:util:${Versions.android_sak}"
     const val sak_view = "com.github.vegidio.android-sak:view:${Versions.android_sak}"
     const val timber = "com.jakewharton.timber:timber:${Versions.timber}"
 }
