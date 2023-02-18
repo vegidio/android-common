@@ -1,7 +1,7 @@
 object Versions {
     const val activity_compose = "1.6.1"
     const val android = "7.4.1"
-    const val android_sak = "23.2.17"
+    const val android_sak = "23.2.18"
     const val apollo = "3.7.4"
     const val compose_material3 = "1.1.0-alpha05"
     const val compose_navigation = "2.5.3"

@@ -21,15 +21,20 @@ import io.vinicius.common.ui.theme.AndroidCommonTheme
 import io.vinicius.sak.network.NetworkState
 import io.vinicius.sak.view.OverlaidStates
 
-fun defaultOverlaidStates(onErrorClick: () -> Unit): OverlaidStates = mutableMapOf(
-    NetworkState.Loading to { LoadingState() },
-    NetworkState.Error to { ErrorState(onClick = onErrorClick) }
+fun defaultOverlaidStates(
+    loadingMessage: String = "Loading...",
+    errorMessage: String = "Error fetching data from the server",
+    errorButton: String = "Close",
+    onErrorClick: () -> Unit
+): OverlaidStates = mutableMapOf(
+    NetworkState.Loading to { LoadingState(loadingMessage) },
+    NetworkState.Error to { ErrorState(errorMessage, errorButton, onClick = onErrorClick) }
 )
 
 @Composable
 fun LoadingState(
+    message: String,
     modifier: Modifier = Modifier,
-    message: String = "Loading..."
 ) {
     Column(
         verticalArrangement = Arrangement.spacedBy(16.dp, Alignment.CenterVertically),
@@ -46,9 +51,10 @@ fun LoadingState(
 
 @Composable
 fun ErrorState(
+    message: String,
+    button: String,
     modifier: Modifier = Modifier,
-    message: String = "Error connecting to the server",
-    onClick: () -> Unit = {}
+    onClick: () -> Unit,
 ) {
     Column(
         verticalArrangement = Arrangement.spacedBy(16.dp, Alignment.CenterVertically),
@@ -66,7 +72,7 @@ fun ErrorState(
         Text(message)
 
         Button(onClick) {
-            Text("Close")
+            Text(button)
         }
     }
 }
@@ -83,6 +89,6 @@ private fun DefaultPreview1() {
 @Composable
 private fun DefaultPreview2() {
     AndroidCommonTheme {
-        ErrorState(message = "Error connecting to the server")
+        ErrorState("Error connecting to the server", "Close", onClick = {})
     }
 }

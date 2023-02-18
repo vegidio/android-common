@@ -13,7 +13,7 @@ val serviceModule = module {
     single<CountriesService>(named("restCountries")) {
         CountriesRestService(
             baseUrl = "https://countries.vinicius.io/api/",
-            logHandler = LogHandler(Timber::d, "BODY")
+            logHandler = LogHandler(Timber::d, "NONE")
         )
     }
 
