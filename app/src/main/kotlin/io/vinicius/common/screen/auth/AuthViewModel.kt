@@ -17,12 +17,12 @@ class AuthViewModel(
     private val service: CountriesService,
     private val session: Session
 ) : ViewModel(), PrivateFlow {
-    val state = privateStateFlow(NetworkState.Idle)
+    val state = privateStateFlow<NetworkState>(NetworkState.Idle)
 
     fun login(email: String, password: String) = viewModelScope.launch {
         service.login(email, password)
             .onStart { state.mutable = NetworkState.Loading }
-            .catch { state.mutable = NetworkState.Error }
+            .catch { state.mutable = NetworkState.Error(it) }
             .map { it.data }
             .flowOn(Dispatchers.IO)
             .collect {

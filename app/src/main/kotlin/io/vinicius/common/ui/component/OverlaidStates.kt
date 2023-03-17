@@ -28,7 +28,7 @@ fun defaultOverlaidStates(
     onErrorClick: () -> Unit
 ): OverlaidStates = mutableMapOf(
     NetworkState.Loading to { LoadingState(loadingMessage) },
-    NetworkState.Error to { ErrorState(errorMessage, errorButton, onClick = onErrorClick) }
+    NetworkState.Error() to { ErrorState(errorMessage, errorButton, onClick = onErrorClick) }
 )
 
 @Composable

@@ -17,12 +17,12 @@ class CountriesViewModel(
     private val service: CountriesService
 ) : ViewModel(), PrivateFlow {
     val countries = privateStateFlow(emptyList<Country>())
-    val state = privateStateFlow(NetworkState.Idle)
+    val state = privateStateFlow<NetworkState>(NetworkState.Idle)
 
     fun fetchCountries() = viewModelScope.launch {
         service.fetchCountries()
             .onStart { state.mutable = NetworkState.Loading }
-            .catch { state.mutable = NetworkState.Error }
+            .catch { state.mutable = NetworkState.Error(it) }
             .map { it.data }
             .flowOn(Dispatchers.IO)
             .collect {
