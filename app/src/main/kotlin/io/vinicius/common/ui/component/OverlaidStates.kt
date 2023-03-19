@@ -24,7 +24,7 @@ import io.vinicius.sak.view.OverlaidStates
 fun defaultOverlaidStates(
     loadingMessage: String = "Loading...",
     errorMessage: String = "Error fetching data from the server",
-    errorButton: String = "Close",
+    errorButton: String = "Try again",
     onErrorClick: () -> Unit
 ): OverlaidStates = mutableMapOf(
     NetworkState.Loading to { LoadingState(loadingMessage) },
