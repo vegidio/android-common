@@ -1,10 +1,10 @@
 object Versions {
+    const val accompanist = "0.29.2-rc"
     const val activity_compose = "1.6.1"
     const val android = "7.4.1"
     const val android_sak = "23.3.19"
     const val apollo = "3.7.4"
     const val compose_material3 = "1.1.0-alpha05"
-    const val compose_navigation = "2.5.3"
     const val compose_ui = "1.3.3"
     const val core_ktx = "1.9.0"
     const val coroutines = "1.6.4"
@@ -27,10 +27,10 @@ object Plugins {
 }
 
 object Deps {
+    const val accompanist_navigation = "com.google.accompanist:accompanist-navigation-animation:${Versions.accompanist}"
     const val activity_compose = "androidx.activity:activity-compose:${Versions.activity_compose}"
     const val apollo_api = "com.apollographql.apollo3:apollo-api:${Versions.apollo}"
     const val compose_material3 = "androidx.compose.material3:material3:${Versions.compose_material3}"
-    const val compose_navigation = "androidx.navigation:navigation-compose:${Versions.compose_navigation}"
     const val compose_ui = "androidx.compose.ui:ui:${Versions.compose_ui}"
     const val compose_ui_test = "androidx.compose.ui:ui-test-manifest:${Versions.compose_ui}"
     const val compose_ui_tooling = "androidx.compose.ui:ui-tooling:${Versions.compose_ui}"

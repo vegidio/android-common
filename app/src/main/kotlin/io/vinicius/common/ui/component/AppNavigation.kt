@@ -1,5 +1,8 @@
 package io.vinicius.common.ui.component
 
+import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.animation.slideInHorizontally
+import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
@@ -29,10 +32,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
-import androidx.navigation.compose.rememberNavController
+import com.google.accompanist.navigation.animation.AnimatedNavHost
+import com.google.accompanist.navigation.animation.composable
+import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 import io.vinicius.common.LocalNavController
 import io.vinicius.common.repository.Session
 import io.vinicius.common.screen.auth.AuthScreen
@@ -42,10 +45,10 @@ import io.vinicius.common.screen.home.HomeScreen
 import io.vinicius.common.screen.user.UserScreen
 import org.koin.androidx.compose.get
 
-@OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalAnimationApi::class)
 @Composable
 fun AppNavigation() {
-    val navController = rememberNavController()
+    val navController = rememberAnimatedNavController()
     val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior()
 
     CompositionLocalProvider(
@@ -56,9 +59,13 @@ fun AppNavigation() {
             topBar = { MyTopAppBar(navController, scrollBehavior) },
             bottomBar = { MyBottomAppBar(navController, Modifier.height(56.dp)) }
         ) { padding ->
-            NavHost(
+            AnimatedNavHost(
                 navController = navController,
                 startDestination = Destination.Home.name,
+                enterTransition = { slideInHorizontally() { it } }, // new enter
+                exitTransition = { slideOutHorizontally() { -it } }, // old exit
+                popEnterTransition = { slideInHorizontally() { -it } }, // old enter
+                popExitTransition = { slideOutHorizontally() { it } }, // new exit
                 modifier = Modifier.padding(padding)
             ) {
                 composable(Destination.Auth.name) { AuthScreen() }
@@ -133,7 +140,7 @@ enum class Destination(val title: String) {
             return if (name == null) {
                 null
             } else {
-                Destination.valueOf(name)
+                Destination.values().find { name.startsWith(it.name) }
             }
         }
     }

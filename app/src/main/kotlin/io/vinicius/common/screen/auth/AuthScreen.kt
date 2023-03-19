@@ -1,8 +1,10 @@
 package io.vinicius.common.screen.auth
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Divider
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.collectAsState
@@ -29,7 +31,9 @@ fun AuthScreen(viewModel: AuthViewModel = koinViewModel(), session: Session = ge
             state = state,
             overlaidStates = defaultOverlaidStates { viewModel.setState(NetworkState.Idle) },
             verticalArrangement = Arrangement.spacedBy(16.dp),
-            modifier = Modifier.padding(16.dp)
+            modifier = Modifier
+                .padding(16.dp)
+                .background(MaterialTheme.colorScheme.background)
         ) {
             AuthLoginForm(viewModel)
 

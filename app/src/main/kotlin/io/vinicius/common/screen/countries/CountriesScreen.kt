@@ -1,9 +1,11 @@
 package io.vinicius.common.screen.countries
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -28,6 +30,7 @@ fun CountriesScreen(viewModel: CountriesViewModel = koinViewModel()) {
     OverlaidLazyColumn(
         state = state,
         overlaidStates = defaultOverlaidStates(errorButton = "Try again") { viewModel.fetchCountries() },
+        modifier = Modifier.background(MaterialTheme.colorScheme.background)
     ) {
         items(countries) {
             CountryRow(

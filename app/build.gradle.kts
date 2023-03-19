@@ -56,10 +56,10 @@ android {
 }
 
 dependencies {
+    implementation(Deps.accompanist_navigation)
     implementation(Deps.activity_compose)
     implementation(Deps.apollo_api)
     implementation(Deps.compose_material3)
-    implementation(Deps.compose_navigation)
     implementation(Deps.compose_ui)
     implementation(Deps.compose_ui_tooling_preview)
     implementation(Deps.core_ktx)
