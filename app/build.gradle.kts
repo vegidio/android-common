@@ -1,4 +1,4 @@
-
+import org.jetbrains.kotlin.config.JvmTarget
 
 plugins {
     alias(libs.plugins.android.app)
@@ -8,11 +8,11 @@ plugins {
 
 android {
     namespace = "io.vinicius.common"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "io.vinicius.common"
-        targetSdk = 33
+        targetSdk = 34
         minSdk = 30
         versionCode = 1
         versionName = "1.0"
@@ -36,17 +36,20 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = JvmTarget.JVM_17.description
+    }
+    buildFeatures {
+        buildConfig = true
     }
     buildFeatures {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.0"
+        kotlinCompilerExtensionVersion = "1.5.8"
     }
     packaging {
         resources {
@@ -56,7 +59,7 @@ android {
 }
 
 dependencies {
-    implementation(libs.accompanist.navigation)
+    implementation(libs.navigation.compose)
     implementation(libs.activity.compose)
     implementation(libs.apollo.api)
     implementation(libs.compose.material3)

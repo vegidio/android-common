@@ -32,10 +32,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
-import com.google.accompanist.navigation.animation.AnimatedNavHost
-import com.google.accompanist.navigation.animation.composable
-import com.google.accompanist.navigation.animation.rememberAnimatedNavController
+import androidx.navigation.compose.rememberNavController
 import io.vinicius.common.LocalNavController
 import io.vinicius.common.repository.Session
 import io.vinicius.common.screen.auth.AuthScreen
@@ -48,7 +48,7 @@ import org.koin.androidx.compose.get
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalAnimationApi::class)
 @Composable
 fun AppNavigation() {
-    val navController = rememberAnimatedNavController()
+    val navController = rememberNavController()
     val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior()
 
     CompositionLocalProvider(
@@ -59,7 +59,7 @@ fun AppNavigation() {
             topBar = { MyTopAppBar(navController, scrollBehavior) },
             bottomBar = { MyBottomAppBar(navController, Modifier.height(56.dp)) }
         ) { padding ->
-            AnimatedNavHost(
+            NavHost(
                 navController = navController,
                 startDestination = Destination.Home.name,
                 enterTransition = { slideInHorizontally() { it } }, // new enter
