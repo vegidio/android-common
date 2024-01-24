@@ -1,9 +1,9 @@
-@file:Suppress("UnstableApiUsage")
+
 
 plugins {
-    id(Plugins.android_app)
-    id(Plugins.kotlin)
-    id(Plugins.apollo) version Versions.apollo
+    alias(libs.plugins.android.app)
+    alias(libs.plugins.kotlin)
+    alias(libs.plugins.apollo)
 }
 
 android {
@@ -12,8 +12,8 @@ android {
 
     defaultConfig {
         applicationId = "io.vinicius.common"
-        minSdk = 30
         targetSdk = 33
+        minSdk = 30
         versionCode = 1
         versionName = "1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
@@ -48,7 +48,7 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = "1.4.0"
     }
-    packagingOptions {
+    packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
@@ -56,25 +56,25 @@ android {
 }
 
 dependencies {
-    implementation(Deps.accompanist_navigation)
-    implementation(Deps.activity_compose)
-    implementation(Deps.apollo_api)
-    implementation(Deps.compose_material3)
-    implementation(Deps.compose_ui)
-    implementation(Deps.compose_ui_tooling_preview)
-    implementation(Deps.core_ktx)
-    implementation(Deps.coroutines_android)
-    implementation(Deps.coroutines_core)
-    implementation(Deps.koin_compose)
-    implementation(Deps.lifecycle_ktx)
-    implementation(Deps.material_icons)
-    implementation(Deps.sak_network)
-    implementation(Deps.sak_util)
-    implementation(Deps.sak_view)
-    implementation(Deps.timber)
+    implementation(libs.accompanist.navigation)
+    implementation(libs.activity.compose)
+    implementation(libs.apollo.api)
+    implementation(libs.compose.material3)
+    implementation(libs.compose.ui)
+    implementation(libs.compose.ui.tooling.preview)
+    implementation(libs.core.ktx)
+    implementation(libs.coroutines.android)
+    implementation(libs.coroutines.core)
+    implementation(libs.koin.compose)
+    implementation(libs.lifecycle.ktx)
+    implementation(libs.material.icons)
+    implementation(libs.sak.network)
+    implementation(libs.sak.util)
+    implementation(libs.sak.view)
+    implementation(libs.timber)
 
-    debugImplementation(Deps.compose_ui_tooling)
-    debugImplementation(Deps.compose_ui_test)
+    debugImplementation(libs.compose.ui.tooling)
+    debugImplementation(libs.compose.ui.test)
 }
 
 apollo {
