@@ -3,6 +3,7 @@ import org.jetbrains.kotlin.config.JvmTarget
 plugins {
     alias(libs.plugins.android.app)
     alias(libs.plugins.kotlin)
+    alias(libs.plugins.compose.compiler)
     alias(libs.plugins.apollo)
 }
 
@@ -68,13 +69,17 @@ dependencies {
     implementation(libs.core.ktx)
     implementation(libs.coroutines.android)
     implementation(libs.coroutines.core)
-    implementation(libs.koin.compose)
     implementation(libs.lifecycle.ktx)
     implementation(libs.material.icons)
     implementation(libs.sak.network)
     implementation(libs.sak.util)
     implementation(libs.sak.view)
     implementation(libs.timber)
+
+    // Koin
+    implementation(platform(libs.koin.bom))
+    implementation(libs.koin.compose)
+    implementation(libs.koin.navigation)
 
     debugImplementation(libs.compose.ui.tooling)
     debugImplementation(libs.compose.ui.test)

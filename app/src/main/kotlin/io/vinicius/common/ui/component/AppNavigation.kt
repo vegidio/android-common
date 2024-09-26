@@ -10,7 +10,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.LockOpen
 import androidx.compose.material3.BottomAppBar
@@ -43,7 +43,7 @@ import io.vinicius.common.screen.countries.CountriesScreen
 import io.vinicius.common.screen.country.CountryScreen
 import io.vinicius.common.screen.home.HomeScreen
 import io.vinicius.common.screen.user.UserScreen
-import org.koin.androidx.compose.get
+import org.koin.compose.koinInject
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalAnimationApi::class)
 @Composable
@@ -91,7 +91,7 @@ private fun MyTopAppBar(navController: NavController, scrollBehavior: TopAppBarS
                 IconButton(onClick = {
                     navController.navigateUp()
                 }) {
-                    Icon(Icons.Filled.ArrowBack, "Back Button")
+                    Icon(Icons.AutoMirrored.Filled.ArrowBack, "Back Button")
                 }
             }
         },
@@ -103,7 +103,7 @@ private fun MyTopAppBar(navController: NavController, scrollBehavior: TopAppBarS
 private fun MyBottomAppBar(
     navController: NavController,
     modifier: Modifier = Modifier,
-    session: Session = get()
+    session: Session = koinInject()
 ) {
     val token by session.token.collectAsState()
 
@@ -140,7 +140,7 @@ enum class Destination(val title: String) {
             return if (name == null) {
                 null
             } else {
-                Destination.values().find { name.startsWith(it.name) }
+                entries.find { name.startsWith(it.name) }
             }
         }
     }

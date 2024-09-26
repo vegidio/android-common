@@ -12,7 +12,7 @@ val serviceModule = module {
     // CountriesRestService
     single<CountriesService>(named("restCountries")) {
         CountriesRestService(
-            baseUrl = "https://countries.vinicius.io/api/",
+            baseUrl = "https://countries-spring.vinicius.io/api/",
             logHandler = LogHandler(Timber::d, "NONE")
         )
     }
@@ -20,7 +20,7 @@ val serviceModule = module {
     // CountriesGraphqlService
     single<CountriesService>(named("graphqlCountries")) {
         CountriesGraphqlService(
-            url = "https://countries.vinicius.io/graphql"
+            url = "https://countries-spring.vinicius.io/graphql"
         )
     }
 }

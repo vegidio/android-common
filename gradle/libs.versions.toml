@@ -1,45 +1,48 @@
 [versions]
-activity-compose = "1.8.2"
+activity-compose = "1.9.2"
 android = "8.2.2"
-android-sak = "24.1.16"
-apollo = "3.8.2"
-compose-material3 = "1.1.2"
-compose-ui = "1.5.4"
-core-ktx = "1.12.0"
-coroutines = "1.7.3"
-detekt = "1.22.0"
-koin = "3.4.1"
-kotlin = "1.9.22"
-ktlint = "11.1.0"
-lifecycle-ktx = "2.7.0"
-material-icons = "1.5.4"
-navigation-compose = "2.7.6"
+android-sak = "24.9.26"
+apollo = "3.8.5"
+compose-material3 = "1.3.0"
+compose = "1.7.2"
+core-ktx = "1.13.1"
+coroutines = "1.8.1"
+detekt = "1.23.4"
+koin = "4.0.0"
+kotlin = "2.0.20"
+ktlint = "12.0.3"
+lifecycle-ktx = "2.8.6"
+material-icons = "1.7.2"
+navigation-compose = "2.8.1"
 timber = "5.0.1"
 
 [plugins]
 android-app = { id = "com.android.application", version.ref = "android" }
 android-lib = { id = "com.android.library", version.ref = "android" }
 apollo = { id = "com.apollographql.apollo3", version.ref = "apollo" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 kotlin = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint" }
 
 [libraries]
-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity-compose" }
-apollo-api = { group = "com.apollographql.apollo3", name = "apollo-api", version.ref = "apollo" }
-compose-material3 = { group = "androidx.compose.material3", name = "material3", version.ref = "compose-material3" }
-compose-ui = { group = "androidx.compose.ui", name = "ui", version.ref = "compose-ui" }
-compose-ui-test = { group = "androidx.compose.ui", name = "ui-test-manifest", version.ref = "compose-ui" }
-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling", version.ref = "compose-ui" }
-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview", version.ref = "compose-ui" }
-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }
-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutines" }
-koin-compose = { group = "io.insert-koin", name = "koin-androidx-compose", version.ref = "koin" }
-lifecycle-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle-ktx" }
-material-icons = { group = "androidx.compose.material", name = "material-icons-extended", version.ref = "material-icons" }
-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigation-compose" }
-sak-network = { group = "io.vinicius.sak", name = "network", version.ref = "android-sak" }
-sak-util = { group = "io.vinicius.sak", name = "util", version.ref = "android-sak" }
-sak-view = { group = "io.vinicius.sak", name = "view", version.ref = "android-sak" }
-timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timber" }
+activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activity-compose" }
+apollo-api = { module = "com.apollographql.apollo3:apollo-api", version.ref = "apollo" }
+compose-material3 = { module = "androidx.compose.material3:material3", version.ref = "compose-material3" }
+compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose" }
+compose-ui-test = { module = "androidx.compose.ui:ui-test-manifest", version.ref = "compose" }
+compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
+compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
+core-ktx = { module = "androidx.core:core-ktx", version.ref = "core-ktx" }
+coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines" }
+coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
+koin-bom = { module = "io.insert-koin:koin-bom", version.ref = "koin" }
+koin-compose = { module = "io.insert-koin:koin-androidx-compose" }
+koin-navigation = { module = "io.insert-koin:koin-androidx-compose-navigation" }
+lifecycle-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycle-ktx" }
+material-icons = { module = "androidx.compose.material:material-icons-extended", version.ref = "material-icons" }
+navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigation-compose" }
+sak-network = { module = "io.vinicius.sak:network", version.ref = "android-sak" }
+sak-util = { module = "io.vinicius.sak:util", version.ref = "android-sak" }
+sak-view = { module = "io.vinicius.sak:view", version.ref = "android-sak" }
+timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }

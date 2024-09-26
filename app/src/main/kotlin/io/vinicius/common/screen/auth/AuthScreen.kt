@@ -3,7 +3,7 @@ package io.vinicius.common.screen.auth
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Divider
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
@@ -18,11 +18,11 @@ import io.vinicius.common.ui.component.defaultOverlaidStates
 import io.vinicius.common.ui.theme.AndroidCommonTheme
 import io.vinicius.sak.network.NetworkState
 import io.vinicius.sak.view.OverlaidColumn
-import org.koin.androidx.compose.get
 import org.koin.androidx.compose.koinViewModel
+import org.koin.compose.koinInject
 
 @Composable
-fun AuthScreen(viewModel: AuthViewModel = koinViewModel(), session: Session = get()) {
+fun AuthScreen(viewModel: AuthViewModel = koinViewModel(), session: Session = koinInject()) {
     val token by session.token.collectAsState()
     val state by viewModel.state.collectAsState()
 
@@ -38,7 +38,7 @@ fun AuthScreen(viewModel: AuthViewModel = koinViewModel(), session: Session = ge
             AuthLoginForm(viewModel)
 
             token?.let {
-                Divider()
+                HorizontalDivider()
                 AuthTokenInfo(it)
             }
         }
